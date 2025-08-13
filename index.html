@@ -11,20 +11,20 @@
         background-color: black;
     }
     .container {
+        flex-wrap: wrap;
         color: white;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         width: 400px;
         height: 500px;
+        position: relative;
+        top: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        justify-self: center;
         align-items: center;
-        position: relative;
-        left: 500px;
-        top: 100px;
         border: white 2px solid;
         border-radius: 50px;
-        background: #3F5EFB;
         background: linear-gradient(184deg, rgba(63, 94, 251, 1) 0%, rgba(195, 77, 150, 1) 62%, rgba(252, 70, 107, 1) 100%);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     }
@@ -99,6 +99,14 @@
     width: 20px;
     height: 10px;
 
+}
+@media screen and (max-width: 320px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 }
 
 </style>
