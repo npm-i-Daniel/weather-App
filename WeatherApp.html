@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather App</title>
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    .container {
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 400px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 500px;
+        top: 100px;
+        border: white 2px solid;
+        border-radius: 50px;
+        background: #3F5EFB;
+        background: linear-gradient(184deg, rgba(63, 94, 251, 1) 0%, rgba(195, 77, 150, 1) 62%, rgba(252, 70, 107, 1) 100%);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+
+    #searchbar {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -50px;
+    }
+
+    #textinput {
+        border-radius: 10px;
+        border: none;
+        padding: 5px 20px;
+    }
+
+    #textinput::placeholder {
+        color: grey;
+    }
+
+    #search {
+        border: none;
+        border-radius: 10px;
+        position: relative;
+        left: 10px;
+        padding: 2px;
+    }
+
+    #search svg {
+        fill: grey;
+    }
+
+    #temp-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #temp {
+        font-size: 40px;
+        margin-bottom: -10px;
+    }
+
+    #cityname {
+        font-size: 30px;
+    }
+    #h-w-main{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #humi,  #wini{
+        display: flex;
+        width: 150px;
+        font-size: 10px;
+        position: relative;
+        top: 60px;
+        left: 5px;
+    }
+    .svg{
+        width: 50px;
+    }
+    .hum, .win{
+        position: relative;
+        top: -10px;
+        left: 20px;
+    }
+
+.weathersvg{
+    width: 20px;
+    height: 10px;
+
+}
+
+</style>
+
+<body>
+    <div class="container">
+        <div id="searchbar">
+            <input type="text" name="" id="textinput" placeholder="Enter City Name"> <button id="search">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 48 48">
+                    <path
+                        d="M 20.5 6 C 12.515556 6 6 12.515562 6 20.5 C 6 28.484438 12.515556 35 20.5 35 C 23.773158 35 26.788919 33.893018 29.220703 32.050781 L 38.585938 41.414062 A 2.0002 2.0002 0 1 0 41.414062 38.585938 L 32.050781 29.220703 C 33.893017 26.788918 35 23.773156 35 20.5 C 35 12.515562 28.484444 6 20.5 6 z M 20.5 10 C 26.322685 10 31 14.677319 31 20.5 C 31 23.295711 29.914065 25.820601 28.148438 27.697266 A 2.0002 2.0002 0 0 0 27.701172 28.144531 C 25.824103 29.912403 23.29771 31 20.5 31 C 14.677315 31 10 26.322681 10 20.5 C 10 14.677319 14.677315 10 20.5 10 z">
+                    </path>
+                </svg></button>
+        </div>
+        <div id="temp-main">
+            <svg height="55px" width="55px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000" stroke="#000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ffffff;} </style> <g> <path class="st0" d="M56.535,233.601c19.55-11.638,42.371-18.305,66.75-18.305c2.948,0,5.886,0.09,8.834,0.269 c8.279-28.385,24.102-53.311,45.076-72.591c-3.995-45.354-42.038-80.87-88.414-80.87C39.746,62.104,0,101.849,0,150.885 C0,188.569,23.465,220.717,56.535,233.601z"></path> <path class="st0" d="M419.994,265.891c-0.036,0-0.072,0.009-0.117,0.009c0.053-1.532,0.117-3.064,0.117-4.605 c0-73.684-59.726-133.409-133.401-133.409c-69.016,0-125.793,52.413-132.692,119.612c-9.676-2.993-19.962-4.606-30.615-4.606 c-57.162,0-103.502,46.339-103.502,103.502c0,57.162,46.34,103.502,103.502,103.502h296.709c50.81,0,92.006-41.187,92.006-91.998 C512,307.079,470.804,265.891,419.994,265.891z"></path> </g> </g></svg>
+            <h2 id="temp"></h2>
+            <h2 id="cityname"></h2>
+        </div>
+        <div id="h-w-main">
+            <div id="humi">
+                <div class="svg"><svg viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:#d7d5d5;stroke-miterlimit:10;stroke-width:1.92px;}</style></defs><path class="cls-1" d="M.5,3.4c1.92,0,1.92.95,3.83.95S6.25,3.4,8.16,3.4s1.92.95,3.83.95,1.92-.95,3.83-.95,1.92.95,3.84.95,1.92-.95,3.84-.95"></path><path class="cls-1" d="M.5,9.15c1.92,0,1.92.95,3.83.95s1.92-.95,3.83-.95,1.92.95,3.83.95,1.92-.95,3.83-.95,1.92.95,3.84.95,1.92-.95,3.84-.95"></path><path class="cls-1" d="M.5,14.9c1.92,0,1.92.95,3.83.95s1.92-.95,3.83-.95,1.92.95,3.83.95,1.92-.95,3.83-.95,1.92.95,3.84.95,1.92-.95,3.84-.95"></path><path class="cls-1" d="M.5,20.65c1.92,0,1.92,1,3.83,1s1.92-1,3.83-1,1.92,1,3.83,1,1.92-1,3.83-1,1.92,1,3.84,1,1.92-1,3.84-1"></path></g></svg></div>
+                <div class="hum">
+                    <h3 id="humidity">00</h3>
+                    <h3>Humidity</h3>
+                </div>
+            </div>
+            <div id="wini">
+                <div class="svg"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#0000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 5.5C6.25 3.70508 7.70507 2.25 9.5 2.25C11.2949 2.25 12.75 3.70507 12.75 5.5C12.75 7.29493 11.2949 8.75 9.5 8.75H3C2.58579 8.75 2.25 8.41421 2.25 8C2.25 7.58579 2.58579 7.25 3 7.25H9.5C10.4665 7.25 11.25 6.4665 11.25 5.5C11.25 4.5335 10.4665 3.75 9.5 3.75C8.5335 3.75 7.75 4.5335 7.75 5.5V5.85714C7.75 6.27136 7.41421 6.60714 7 6.60714C6.58579 6.60714 6.25 6.27136 6.25 5.85714V5.5Z" fill="#cbccd2"></path> <path opacity="0.4" d="M3.25 14C3.25 13.5858 3.58579 13.25 4 13.25H18.5C20.8472 13.25 22.75 15.1528 22.75 17.5C22.75 19.8472 20.8472 21.75 18.5 21.75C16.1528 21.75 14.25 19.8472 14.25 17.5V17C14.25 16.5858 14.5858 16.25 15 16.25C15.4142 16.25 15.75 16.5858 15.75 17V17.5C15.75 19.0188 16.9812 20.25 18.5 20.25C20.0188 20.25 21.25 19.0188 21.25 17.5C21.25 15.9812 20.0188 14.75 18.5 14.75H4C3.58579 14.75 3.25 14.4142 3.25 14Z" fill="#cbccd2"></path> <path opacity="0.7" d="M14.25 7.5C14.25 5.15279 16.1528 3.25 18.5 3.25C20.8472 3.25 22.75 5.15279 22.75 7.5C22.75 9.84721 20.8472 11.75 18.5 11.75H2C1.58579 11.75 1.25 11.4142 1.25 11C1.25 10.5858 1.58579 10.25 2 10.25H18.5C20.0188 10.25 21.25 9.01878 21.25 7.5C21.25 5.98122 20.0188 4.75 18.5 4.75C16.9812 4.75 15.75 5.98122 15.75 7.5V8C15.75 8.41421 15.4142 8.75 15 8.75C14.5858 8.75 14.25 8.41421 14.25 8V7.5Z" fill="#cbccd2"></path> </g></svg></div>
+                <div class="win">
+                    <h3 id="wind">00</h3>
+                    <h3>Wind Speed</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="script.js">
+   
+</script>
+
+</html>
